@@ -1,0 +1,231 @@
+%导言区
+\documentclass[hyperref,UTF8]{ctexart}
+
+\usepackage{ctex}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{geometry}
+
+\geometry{a4paper,left=2.7cm,right=2.7cm}
+\title{未定}
+\date{\today}
+
+\newtheorem{theorem}{定理}[subsection]
+\newtheorem{definition}{定义}[subsection]
+
+
+%正文
+
+\begin{document}
+
+	\maketitle
+
+	\tableofcontents
+\section{集合}
+	\subsection{基本概念}
+	\begin{definition}
+	集合\ 元素	
+	
+	指具有某种特定性质的具体的或抽象的对象汇集成的总体，这些对象称为集合的元素
+	
+
+	\end{definition}
+	\begin{definition}{笛卡尔积}
+	\[ A_1\times A_2 \times \dots \times A_n=\{(a_1,a_2,\dots,a_n)|a_i\in A_i\}\]
+	\end{definition}
+
+	\begin{definition}
+		集合中元素的个数\[|A|\]
+	\end{definition}
+
+
+	\subsection{重点}
+	\begin{theorem}
+	两个集合A,B相等的充要条件：\[A=B\iff A\subset B,B\subset A\]
+	\end{theorem}
+
+\section{映射}
+
+		\subsection{映射的定义}
+		
+		
+	\begin{definition}
+		映射
+		\[\phi{:}A_1\times A_2\times \dots A_n \to D\]
+		
+		如果$A_1\times A_2\times \dots A_n$中的每一个元素$(a_1\times a_2\times \dots a_n)$都有$D$中唯一的元素$d$与之对应，那么称$\phi $是从$A_1\times A_2\times \dots A_n$到$D$的一个映射
+	\end{definition}
+
+%\marginpar 边注的字号还没设置
+	\begin{definition}
+		两个映射相等\marginpar{条件：定义域、陪域相同，同一元素对应像相同
+			
+			\heiti{注意：$\phi_1,\phi_2$的解析式是可以不同的}}
+		\[\phi_1,\phi_2{:}A_1\times A_2\times \dots A_n \to D\]
+		
+		如果$A_1\times A_2\times \dots A_n$中的每一个元素$(a_1\times a_2\times \dots a_n)$都有\[\phi_1(a_1\times a_2\times \dots a_n)=\phi_1(a_1\times a_2\times \dots a_n)\]
+		则称这两个映射相等
+	\end{definition}
+
+	\begin{definition}单射\marginpar{单射时当且仅当$\phi(a)=\phi(b)\Rightarrow a =b$}
+		%: 用 {\ :\  } 有空格
+		
+	设 $ \phi{\ :\  }  A \to B$是一个映射，对于$\forall a,b\in A$,如果 \[a\neq b \Rightarrow \phi(a)\neq \phi(b)\]则称$\phi$是从$ A $到$ B $的单射
+	\end{definition}
+	
+	\begin{definition}
+		满射
+		
+		设 $ \phi{\ :\  }  A \to B$是一个映射，如果对于$\forall \ b\in B,\exists \  a\in A$有$b=\phi(a)$
+		
+		则称$\phi$是从A到B的满射
+	\end{definition}
+
+    \begin{definition}
+		双射（一一映射）
+		
+		既是单射，又是满射的映射 
+	\end{definition}
+
+	\begin{definition}
+		复合映射
+		
+		设$ f:A\to B $和 $ g:B \to C $是两个映射
+		
+		规定$ g\circ f:A\to C $为对于 $\forall \ x \in A ,g\circ f(x) =g(f(x))$
+		
+		则称 $ g\circ f $ 为f与g的复合映射
+	\end{definition}
+
+	\begin{definition}
+		逆映射
+		
+		设$ f:A\to B $和 $ g:B \to A $是两个映射.
+		
+		如果 $ f\circ g = id_B:B\to B\  and\ g\circ f = id_A:A\to A $
+		
+		则称 $ f $与$ g $互为逆映射 
+	\end{definition}
+
+
+	\subsection{映射的定理}
+\begin{theorem}
+	单射的复合是单射；满射的复合是满射；双射的复合是双射
+\end{theorem}
+	\begin{proof}
+	设 $ f:A\to B,g:B\to C,g\circ f $是$f$和$g$的复合映射
+	
+	\item[(1)]$f,g$ 为单射，则对于任意的 $a\neq b \in A$
+	
+	$\Rightarrow f(a_1)\neq  f(a_2)\in B$
+	
+	$\Rightarrow (g\circ f)(a_1)=g(f(a_1)) \neq g(f(a_2))=(g\circ f)(a_2)$
+	\item[(2)]$f,g$ 为满射，则对于任意的 $c\in C$
+	
+	$\exists\  b\in B,s.t. g(b) = c$
+	
+	$\exists\  a\in A,s.t. f(a)= b$
+	
+	所以$c=g(f(a))=(g\circ f)(a)$
+	
+	
+	\item[(3)]  同(1)(2)
+	\end{proof}	
+	
+	
+	
+	\begin{theorem}
+	双射存在唯一的逆映射，且这个逆映射也是双射
+	\end{theorem}
+	
+\begin{proof}
+设 $ f:A\to B $是一个双射
+
+规定$ f^{-1}:B\to A  $为对于任意的$ y = f(x)\in B ,f^{-1}(y)=x$
+
+由于$ f $是一个双射，可以验证$ f^{-1} $ 是一个映射
+
+\begin{itemize}
+	\item 下证$ f^{-1} $是一个双射
+	
+	任意取$ f(x_1)=y_1\neq y_2=f(x_2) $，由于f为单射
+	
+	所以$ f^{-1}(y_1)=x_1 \neq x_2 =f^{-1}(y_2) $
+	
+	所以$ f^{-1} $是单射
+	\\
+	
+	任意取$ x\in A $,由于$ f $是映射
+	
+	所以 存在$ y\in B f^{-1}(y)=x $ 
+	所以$ f^{-1} $是满射
+	
+	所以$ f^{-1} $是双射
+	
+	\item
+	下证 $ f^{-1} $是 $ f $ 的逆映射
+
+\end{itemize} 
+
+\end{proof}
+	
+	
+%代数运算
+\section{代数运算}
+	\subsection{基本概念}
+	\begin{definition}
+	代数运算
+	
+	一个从$A\times B$到$D$的映射叫做一个$A\times B$到$D$的代数运算\marginpar{两个集合的笛卡尔积到第三个集合的映射}
+	
+	\[\circ {\ :\ }A\times B \to D \]
+	\[(a,b) \mapsto d = a\circ b. \]
+	
+	如果集合$A=B=D$则称$\circ$为$A$上的代数运算，或是$\circ$具有封闭性
+	\end{definition}	
+	\begin{definition}结合律、交换律
+		
+		$\circ$是集合$A$上的一个代数运算
+		
+		\item[(1)] 如果对于$\forall a,b,c\in A ,$都有\[(a\circ b)\circ c = a \circ (b\circ c)\]
+		
+		则称$\circ$适合结合律
+		\item[(2)] 如果对于$\forall a,b\in A ,$都有\[a\circ b = b\circ a\]
+		
+		则称$\circ$适合交换律
+	\end{definition}
+	\begin{definition}
+		消去律
+		
+		$\circ$是集合$A$上的一个代数运算,对于$\forall a,b,c\in A$
+		
+		\item[(1)] 若\[a\circ b = a \circ c \quad \Rightarrow \quad b=c\] 
+		
+		则称$\circ$适合左消去律
+		\item[(2)]若\[b\circ a = c \circ a \quad \Rightarrow \quad b=c\]
+		
+		则称$\circ$适合右消去律
+		\item[(3)]若$\circ$既适合左消去律又适合和右消去律，则称$\circ$适合消去律
+	\end{definition}
+	\begin{definition}
+		分配律
+		
+		$\oplus,\otimes$是集合$A$上的一个代数运算,$\forall a_1,a_2,b\in A$
+		
+		\item[(1)] 若\[b\otimes(a_1\oplus a_2)  = (b\otimes a_1) \oplus (b\otimes a_2)\] 
+		
+		则称$\otimes$对于$ \oplus $适合左分配律
+		\item[(2)]若\[(a_1\oplus a_2)\otimes b = (a_1\otimes b) \oplus (a_2\otimes b)\]
+		
+		则称$\otimes$对于$ \oplus $适合右分配律
+		\item[(3)]若$\circ$既适合左分配律又适合和右分配律，则称$\otimes$对于$ \oplus $适合分配律
+		
+	\end{definition}
+
+	
+	
+	\subsection{重点}
+
+	
+
+\end{document}
